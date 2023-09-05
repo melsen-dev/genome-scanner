@@ -5,9 +5,11 @@ It scans the user-provided VCF file (can be downloaded from sequencing provider)
 This application is an implementation of the findings in referenced papers for research purposes only. It is not recommended as guidance in medical diagnosis and treatment.
 
 SNP Database
+
 [<img src="./doc/snpdb.png" width="800"/>](./doc/snpdb.png)
 
-Report
+Report based on VCF file
+
 [<img src="./doc/results.png" width="1000"/>](./doc/results.png)
 
 # VCF File Compatibility
