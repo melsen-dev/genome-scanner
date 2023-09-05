@@ -10,7 +10,7 @@ SNP Database\
 Report based on VCF file\
 [<img src="./doc/results.png" width="1000"/>](./doc/results.png)
 
-# VCF File Compatibility
+# VCF Compatibility
 This application has been tested with VCF v4.2 files, see https://samtools.github.io/hts-specs/VCFv4.2.pdf for details on file format. You can find example VCF files for individual genomes from the `International Genome Sample Resource (IGSR)` and the `1000 Genomes Project` at https://www.internationalgenome.org/faq/can-i-get-phased-genotypes-and-haplotypes-for-the-individual-genomes/.
 
 # Python Code
