@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Searches VCF file for SNPs from a database and interpretes results
+Scans VCF file for SNPs from a database and interprets results
 """
 __author__ = "Melanie Senn"
 __copyright__ = "Copyright 2023"
@@ -107,7 +107,7 @@ def get_snpdb(db_filename):
 # Get VCF file from user selection
 def get_vcf_file():
 
-    file_types = (('vcf files', '*.vcf.gz'), ('All files', '*.*'))
+    file_types = (('vcf files', '*.vcf'), ('All files', '*.*'))
     file_name = fd.askopenfilename(title='Open a VCF file', initialdir='/', filetypes=file_types)
     file = VariantFile(file_name)
 
