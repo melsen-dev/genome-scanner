@@ -79,11 +79,11 @@ def get_snp_results(database, vcf_file):
     # Find results in VCF file for each SNP in database 
     for db_index in database.index:
         current_SNP = database[C_SNP][db_index]
-        print(f"Searching for SNP {current_SNP} ({db_index + 1} out of {len(database.index)})")
+        print(f"Scanning for SNP {current_SNP} ({db_index + 1} out of {len(database.index)})")
         records = vcf_file.fetch()
         for record in records:
             if (record.id == current_SNP):
-                print(f"Found {current_SNP}")
+                print(f"Found SNP {current_SNP}")
                 result_entry = len(results.index)
                 results.loc[result_entry, C_SNP] = current_SNP
                 results.loc[result_entry, C_CONDITION] = database[C_CONDITION][db_index]
@@ -125,10 +125,10 @@ if __name__ == '__main__':
     results = get_snp_results(snpdb, vcf_file)
 
     # Print results
-    print('\n' + results.to_markdown())
+    print('\nResults\n' + results.to_markdown())
 
     # Print SNP database
-    print('\n' + snpdb.to_markdown())
+    print('\nSNP Database\n' + snpdb.to_markdown())
 
     print('\nScan finished')
 
