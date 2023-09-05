@@ -4,12 +4,10 @@
 It scans the user-provided VCF file (can be downloaded from sequencing provider) for annotated genes from the SNP database and outputs a report table with associated risk or each found SNP.
 This application is an implementation of the findings in referenced papers for research purposes only. It is not recommended as guidance in medical diagnosis and treatment.
 
-SNP Database
-
+SNP Database\
 [<img src="./doc/snpdb.png" width="800"/>](./doc/snpdb.png)
 
-Report based on VCF file
-
+Report based on VCF file\
 [<img src="./doc/results.png" width="1000"/>](./doc/results.png)
 
 # VCF File Compatibility
