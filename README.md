@@ -6,7 +6,6 @@ This application is an implementation of the findings in referenced papers for r
 
 # VCF File Compatibility
 This application has been tested with VCF v4.2 files, see https://samtools.github.io/hts-specs/VCFv4.2.pdf for details on file format.
-An example VCF file can be found at https://github.com/jamescasbon/PyVCF/blob/master/vcf/test/example-4.2.vcf).
 
 # Python Code
 Add requirements.txt
