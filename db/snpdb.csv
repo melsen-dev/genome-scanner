@@ -1,0 +1,11 @@
+Condition,Application,SNP,Gene/locus,Risk allele,Protective allele,Reference
+Spondyloarthritis,Diagnosis,rs30187,ERAP1,T,C,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs11465804,IL23R,T,G,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs11209026,IL23R,T,G,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs11209032,IL23R,T,G,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs10865331,2p15,A,G,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs2836878,21q22,G,A,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs3749171,GPR35,T,C,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs4676410,GPR35,T,C,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs2228145,IL6R,A,C,https://www.nature.com/articles/npjgenmed20168
+Spondyloarthritis,Diagnosis,rs6908425,CDKAL1,C,T,https://www.nature.com/articles/npjgenmed20168
