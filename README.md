@@ -14,12 +14,9 @@ Report based on VCF file\
 This application has been tested with VCF v4.2 files, see https://samtools.github.io/hts-specs/VCFv4.2.pdf for details on file format. You can find example VCF files for individual genomes from the `International Genome Sample Resource (IGSR)` and the `1000 Genomes Project` at https://www.internationalgenome.org/faq/can-i-get-phased-genotypes-and-haplotypes-for-the-individual-genomes/.
 
 # Python Code
-You can clone this repository to execute the application on your local computer with the following
-[Requirements](./code/requirements.txt).
-You can edit the
-[SNP database](./db/snpdb.csv)
-to add more annotated genes.
-To execute this code, run [genome-scanner](./code/genome-scanner.py).
-
+* Clone this repository to execute the application on your local computer using the following [requirements](./code/requirements.txt).
+* Edit the [SNP database](./db/snpdb.csv) to add more annotated genes.
+* Run [genome-scanner.py](./code/genome-scanner.py) to execute this code on your local computer.
+  
 # Web Service
 Add hosted web service address
