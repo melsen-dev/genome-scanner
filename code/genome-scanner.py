@@ -25,13 +25,16 @@ C_PROTECTIVE_ALLELE = 'Protective allele'
 C_REFERENCE = 'Reference'
 C_ASSOCIATION = 'Association'
 V_DIAGNOSIS = 'Diagnosis'
+V_TREATMENT = 'Treatment'
 ASSOCIATIONS_DIAGNOSIS = ['Average risk', 'Small increase in risk', 'Increased risk']
+ASSOCIATIONS_TREATMENT = ['clinical response']
 
 # Get association for result row
 def get_association(result_row):
 
     association = ''
-    if result_row[C_APPLICATION] == V_DIAGNOSIS:
+    application = result_row[C_APPLICATION]
+    if application == V_DIAGNOSIS:
         
         # Risk = 0: if risk allele not found in genotype
         # Risk = 1: if risk allele found once in genotype
@@ -39,6 +42,27 @@ def get_association(result_row):
         risk = result_row[C_GENOTYPE].count(result_row[C_RISK_ALLELE])
         assert((risk < 2) or (risk > 0))
         association = ASSOCIATIONS_DIAGNOSIS[risk]
+    elif V_TREATMENT in application:
+        
+        # Break down application string
+        application, medication, response = application.split('_')
+        association = 'Unknown ' + ASSOCIATIONS_TREATMENT[0] + ' for ' + medication
+        risk_allele = result_row[C_RISK_ALLELE]
+        len_risk_allele = len(risk_allele)
+        genotype = result_row[C_GENOTYPE]
+        
+        # One risk allele given by snpdb (paper reference)
+        if len_risk_allele == 1:     
+            risk = genotype.count(risk_allele)
+            assert((risk < 2) or (risk > 0))
+            if risk > 0:
+                association = response + ' ' + ASSOCIATIONS_TREATMENT[0] + ' for ' + medication
+        
+        # Two combined risk alleles as genotype given by snpdb (paper reference)
+        elif len_risk_allele == 2:  
+            reversed_genotype = genotype[::-1]
+            if (risk_allele == genotype) or (risk_allele == reversed_genotype):
+                association = response + ' ' + ASSOCIATIONS_TREATMENT[0] + ' for ' + medication
     
     return association
 

@@ -2,7 +2,7 @@
 
 `genome-scanner` is an open source application to scan for Single Nucleotide Polymorphisms (SNPs) from Variant Call File (VCF) files that result from Whole Genome Sequencing (WGS) data analysis (e.g. sequencing.com, dantelabs.com).
 It scans the user-provided VCF file (can be downloaded from sequencing provider) for annotated genes from the SNP database and outputs a report table with associated risk or each found SNP.
-This application is an implementation of the findings in referenced papers for research purposes only. It is not recommended as guidance in medical diagnosis and treatment.
+This application is an implementation of the findings in referenced papers for research purposes only. It is not recommended as guidance in medical diagnosis and treatment. There might be conflicting results from different studies, see referenced papers for more details.
 
 SNP Database\
 [<img src="./doc/snpdb.png" width="800"/>](./doc/snpdb.png)
@@ -15,7 +15,7 @@ This application has been tested with VCF v4.2 files, see https://samtools.githu
 
 # Python Code
 * Clone this repository to execute the application on your local computer installing the following [requirements](./requirements.txt).
-* Edit the [SNP database](./db/snpdb.csv) to add more annotated genes.
+* Edit the [SNP database](./db/snpdb_sa.csv) to add more annotated genes.
 * Run [genome-scanner.py](./code/genome-scanner.py) to execute this code on your local computer.
   
 # Web Service
