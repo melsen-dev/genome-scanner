@@ -119,7 +119,7 @@ if __name__ == '__main__':
     vcf_file = get_vcf_file()
 
     # Load SNP database
-    snpdb = get_snpdb('../db/snpdb.csv')
+    snpdb = get_snpdb('../db/snpdb_sa.csv')
 
     # Get results for SNPs found in VCF file and SNP database
     results = get_snp_results(snpdb, vcf_file)
