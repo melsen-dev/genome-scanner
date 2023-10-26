@@ -69,19 +69,23 @@ def get_association(result_row):
 # Get genotype for record
 def get_genotype(record):
     
+    genotype = 'II' # Invalid genotype
+
     # Currently do not handle delete/insert
     # Reference: reference genome
     # Alt: studied sample
     # GT: 0 reference allele, 1 alternative allele
     # If ref_len > alt_len --> delete, if ref_len < alt_len --> insert
     ref_len = len(record.ref)   
+    if record.alts == None: # no data available
+        return genotype
     alt_len = len(record.alts)
     assert(ref_len == alt_len)  
 
     # For details on genotype see pysam documentation
     sample_id = record.samples.keys()[0]
     genotype_binary = record.samples[sample_id]['GT']
-    genotype = 'II' # Invalid genotype
+    
     assert(genotype_binary != (0, 0)) # (0, 0) should never happen
     if (genotype_binary == (1, 1)): # Homozygous alt
         genotype = record.alts[0] + record.alts[0]
