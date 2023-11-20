@@ -3,6 +3,7 @@
 Genetic testing data comes in different formats
 * Variant Call Files (VCF) from Whole Genome Sequencing (WGS) data analysis (e.g., sequencing.com, dantelabs.com)
 * Tab Separated Files (TSV) from DNA Genotyping (e.g., 23andme).
+
 This application scans the user-provided files (can be downloaded from sequencing provider) for annotated genes from the SNP database and outputs a report table with associated risk or each found SNP. This application is an implementation of the findings in referenced papers for research purposes only. It is not recommended as guidance in medical diagnosis and treatment. There might be conflicting results from different studies, see referenced papers for more details.
 
 SNP Database\
