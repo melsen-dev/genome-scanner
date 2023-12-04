@@ -9,8 +9,14 @@ Spondyloarthritis,Diagnosis,rs3749171,GPR35,T,C,https://www.nature.com/articles/
 Spondyloarthritis,Diagnosis,rs4676410,GPR35,T,C,https://www.nature.com/articles/npjgenmed20168
 Spondyloarthritis,Diagnosis,rs2228145,IL6R,A,C,https://www.nature.com/articles/npjgenmed20168
 Spondyloarthritis,Diagnosis,rs6908425,CDKAL1,C,T,https://www.nature.com/articles/npjgenmed20168
-Spondyloarthritis,Diagnosis,rs13202464,HLA-B,G,-,https://www.nature.com/articles/ng.1005
 Spondyloarthritis,Diagnosis,rs116488202,HLA-B,T,C,https://www.nature.com/articles/nrrheum.2015.133
+Spondyloarthritis,Diagnosis,rs1065407 ,ERAP1,A,C,https://www.nature.com/articles/nrrheum.2015.133
+Spondyloarthritis,Diagnosis,rs2910686 ,ERAP2,C,T,https://www.nature.com/articles/nrrheum.2015.133
+Spondyloarthritis,Diagnosis,rs2975033 ,HLA‐A*0201 ,A,G,https://www.nature.com/articles/nrrheum.2015.133
+Spondyloarthritis,Diagnosis,rs1126513 ,HLA‐DPB1 ,T,G,https://www.nature.com/articles/nrrheum.2015.133
+Spondyloarthritis,Diagnosis,rs11624293 ,GPR65 ,C,T,https://www.nature.com/articles/nrrheum.2015.133
+Spondyloarthritis,Diagnosis,rs35448675 ,IL27 ,A,G,https://www.nature.com/articles/nrrheum.2015.133
+Spondyloarthritis,Diagnosis,rs2836883 ,ND,G,A,https://www.nature.com/articles/nrrheum.2015.133
 Spondyloarthritis,Treatment_TNF-Inhibitor_Positive,rs1799724,TNFRSF1A,T,-,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8329488/
 Spondyloarthritis,Treatment_TNF-Inhibitor_Positive,rs1799964,TNF,T,-,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8329488/
 Spondyloarthritis,Treatment_TNF-Inhibitor_Positive,rs1800629,TNF,A,-,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8329488/
