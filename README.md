@@ -12,6 +12,9 @@ SNP Database\
 Report based on VCF/TSV files\
 [<img src="./doc/results.png" width="1000"/>](./doc/results.png)
 
+Summary\
+You will also get a diagnostic and a treatment score for TNF inhibitors and Methotrexate based on all found genes (tsv version only).
+
 # VCF Compatibility
 This application has been tested with VCF v4.2 files. See https://samtools.github.io/hts-specs/VCFv4.2.pdf for details on file format. You can find example VCF files for individual genomes from the `International Genome Sample Resource (IGSR)` and the `1000 Genomes Project` at https://www.internationalgenome.org/faq/can-i-get-phased-genotypes-and-haplotypes-for-the-individual-genomes/.
 
