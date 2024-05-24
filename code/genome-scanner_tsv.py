@@ -9,11 +9,12 @@ __version__ = "1.0.0"
 __maintainer__ = "Melanie Senn"
 __email__ = "melanie.senn@gmail.com"
 
-import numpy as np
+# import numpy as np
+# import glob
 import pandas as pd
-from tkinter import filedialog as fd
-import glob
 from zipfile import ZipFile
+import sys
+import json
 
 # Name constants
 C_APPLICATION = 'Application'
@@ -41,7 +42,7 @@ def get_risk_association(result_row):
     risk = 0
     application = result_row[C_APPLICATION]
     if application == V_DIAGNOSIS:
-        
+
         # Risk = 0: if risk allele not found in genotype
         # Risk = 1: if risk allele found once in genotype
         # Risk = 2: if risk allele found twice in genotype
@@ -50,7 +51,7 @@ def get_risk_association(result_row):
         assert((risk < 2) or (risk > 0))
         association = ASSOCIATIONS_DIAGNOSIS[risk]
     elif V_TREATMENT in application:
-        
+
         # Break down application string
         application, medication, response = application.split('_')
         clinical_response_str = 'clinical response'
@@ -58,28 +59,28 @@ def get_risk_association(result_row):
         risk_allele = result_row[C_RISK_ALLELE]
         len_risk_allele = len(risk_allele)
         genotype = result_row[C_GENOTYPE]
-        
+
         # One risk allele given by snpdb (paper reference)
-        if len_risk_allele == 1:     
+        if len_risk_allele == 1:
             risk = genotype.count(risk_allele)
             max_risk = 2
             assert((risk < 2) or (risk > 0))
             if risk > 0:
                 association = response + ' ' + clinical_response_str + ' for ' + medication
-        
+
         # Two combined risk alleles as genotype given by snpdb (paper reference)
-        elif len_risk_allele == 2:  
+        elif len_risk_allele == 2:
             reversed_genotype = genotype[::-1]
             max_risk = 1
             if (risk_allele == genotype) or (risk_allele == reversed_genotype):
                 association = response + ' ' + clinical_response_str + ' for ' + medication
                 risk = 1
-    
+
     return risk, max_risk, association
 
 # Get results from TSV files for database SNPs
 def get_snp_results(database, tsv_files):
-    
+
     # Create empty results table
     result_columns=[C_CONDITION, C_APPLICATION, C_SNP, C_GENE, C_GENOTYPE, C_RISK_ALLELE, C_PROTECTIVE_ALLELE, C_ASSOCIATION, C_REFERENCE]
     results = pd.DataFrame(columns=result_columns)
@@ -104,7 +105,7 @@ def get_snp_results(database, tsv_files):
             risk, max_risk, association = get_risk_association(results.loc[result_entry]) # risk association
             results.loc[result_entry, C_RISK] = risk
             results.loc[result_entry, C_MAX_RISK] = max_risk
-            results.loc[result_entry, C_ASSOCIATION] = association  
+            results.loc[result_entry, C_ASSOCIATION] = association
 
     return results
 
@@ -116,7 +117,7 @@ def summarize_results(results):
     diagnostic_risk = diagnostic_results[C_RISK].sum()
     diagnostic_max_risk = diagnostic_results[C_MAX_RISK].sum()
     diagnostic_rel_risk = diagnostic_risk / diagnostic_max_risk
-    
+
     # Average risk
     if diagnostic_rel_risk == 0.0:
         diagnostic_risk_association = ASSOCIATIONS_DIAGNOSIS[0]
@@ -124,11 +125,11 @@ def summarize_results(results):
     # Small increase in risk
     elif diagnostic_rel_risk <= 0.5:
         diagnostic_risk_association = ASSOCIATIONS_DIAGNOSIS[1]
-    
+
     # Increased risk
     else:
         diagnostic_risk_association = ASSOCIATIONS_DIAGNOSIS[2]
-        
+
     # Treatment summary
     # Get relative risk for treatment options
     def get_rel_risk(treatment_application):
@@ -140,13 +141,13 @@ def summarize_results(results):
         # Low treatment opportunity
         if treatment_rel_risk <= 0.3:
             treatment_risk_association = ASSOCIATIONS_TREATMENT_OPPORTUNITY[0]
-        
+
         # High treatment opportunity
         else:
             treatment_risk_association = ASSOCIATIONS_TREATMENT_OPPORTUNITY[1]
 
         return treatment_risk_association
-    
+
     # TNF Inhibitor
     treatment_risk_association_tnf_pos = get_rel_risk(V_TREATMENT_TNF_POS)
 
@@ -162,20 +163,36 @@ def get_snpdb(db_filename):
     return database
 
 # Get TSV files content from user selection
-def get_tsv_content():
+def get_tsv_content(file_name=None):
 
-    file_types = (('zip files', '*.zip'), ('All files', '*.*'))
-    file_name = fd.askopenfilename(title='Open a ZIP file', initialdir='/', filetypes=file_types)
+    if file_name is None:
+        from tkinter import filedialog as fd
+        file_types = (('zip files', '*.zip'), ('All files', '*.*'))
+        file_name = fd.askopenfilename(title='Open a ZIP file', initialdir='/', filetypes=file_types)
 
-    # Get TSV content from zip file
-    zip_file = ZipFile(file_name)
-    tsv_content = pd.concat([pd.read_csv(zip_file.open(i.filename), sep='\t', header=None) for i in zip_file.infolist() if i.compress_size > 0], ignore_index=True)
+    # Check if file is a zip file
+    if file_name.endswith('.zip'):
+        # Get TSV content from zip file
+        zip_file = ZipFile(file_name)
+        tsv_content = pd.concat([pd.read_csv(zip_file.open(i.filename), sep='\t', header=None) for i in zip_file.infolist() if i.compress_size > 0], ignore_index=True)
+    else:
+        tsv_content = pd.read_csv(file_name, sep='\t', header=None)
+
     return tsv_content
 
 if __name__ == '__main__':
-    
+
+     # Get command line arguments
+    args = sys.argv
+
+    file_name = None
+    # Check if there are command line arguments
+    if len(args) > 1:
+        # Get the first argument as the user's SNP filename
+        file_name = args[1]
+
     # Get content from TSV files
-    tsv_content = get_tsv_content()
+    tsv_content = get_tsv_content(file_name)
 
     # Load SNP database
     snpdb = get_snpdb('../db/snpdb_sa.csv')
@@ -187,7 +204,7 @@ if __name__ == '__main__':
     diagnostic_risk_association, treatment_risk_association_tnf_pos, treatment_risk_association_mtx_pos = summarize_results(results)
     print('\nYour diagnostic score: ' + diagnostic_risk_association)
     treatment_str = ' for positive clinical response'
-    print('\nYour TNF inhibitor treatment score: ' + treatment_risk_association_tnf_pos + treatment_str)      
+    print('\nYour TNF inhibitor treatment score: ' + treatment_risk_association_tnf_pos + treatment_str)
     print('\nYour Methotrexate treatment score: ' + treatment_risk_association_mtx_pos + treatment_str)
 
     # Print SNP database
@@ -197,6 +214,18 @@ if __name__ == '__main__':
     results = results.drop(columns=[C_APPLICATION, C_CONDITION, C_RISK, C_MAX_RISK])
     print('\nResults\n' + results.to_markdown())
     results.to_csv('results.csv', index=False, sep='\t')
+
+    # Define dictionary
+    result_dic = {
+        "dianogstic_score": diagnostic_risk_association,
+        "tnf_treatment_score": treatment_risk_association_tnf_pos + treatment_str,
+        "mr_treatment_score" : treatment_risk_association_mtx_pos + treatment_str,
+        "table_csv" : results.to_csv(None, index=False, sep='\t')
+    }
+
+    # Convert and write JSON object to file
+    with open("results.json", "w") as outfile:
+        json.dump(result_dic, outfile)
 
     print('\nScan finished')
 
