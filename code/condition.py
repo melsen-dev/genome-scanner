@@ -12,7 +12,6 @@ __email__ = "melanie.senn@gmail.com"
 from abc import abstractmethod
 import pandas as pd
 from zipfile import ZipFile
-from tkinter import filedialog as fd
 
 # Name constants
 C_APPLICATION = 'Application'
@@ -41,6 +40,7 @@ class Condition:
     def get_tsv_content(self):
 
         if self.snp_file_name is None:
+            from tkinter import filedialog as fd
             file_types = (('zip files', '*.zip'), ('All files', '*.*'))
             self.snp_file_name = fd.askopenfilename(title='Open a ZIP file', initialdir='/', filetypes=file_types)
 

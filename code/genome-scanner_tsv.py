@@ -9,8 +9,16 @@ __version__ = "1.0.0"
 __maintainer__ = "Melanie Senn"
 __email__ = "melanie.senn@gmail.com"
 
-from spondyloarthritis import Spondyloarthritis
+import importlib
 import sys
+
+# Imports a module dynamically and instantiates a class from it
+def import_and_instantiate(module_name, class_name, *args, **kwargs):
+
+    module = importlib.import_module(module_name)
+    class_ = getattr(module, class_name)
+    return class_(*args, **kwargs)
+
 
 if __name__ == '__main__':
 
@@ -26,8 +34,14 @@ if __name__ == '__main__':
         # Get the first argument as the user's SNP filename
         snp_file_name = args[1]
 
+    # Import module and instantiate object for specific condition
+    c_spondyloarthritis = import_and_instantiate("spondyloarthritis", "Spondyloarthritis", snp_file_name, snp_db_file_name)
+    #spondyloarthritis = importlib.import_module("spondyloarthritis")
+    #from spondyloarthritis import Spondyloarthritis
+
     # Create condition spondyloarthritis
-    c_spondyloarthritis = Spondyloarthritis(snp_file_name, snp_db_file_name)
+    #c_spondyloarthritis = globals()["Spondyloarthritis"](snp_file_name, snp_db_file_name)
+    #c_spondyloarthritis = Spondyloarthritis(snp_file_name, snp_db_file_name)
 
     # Get content from TSV files
     c_spondyloarthritis.get_tsv_content()
