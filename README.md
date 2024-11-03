@@ -6,13 +6,15 @@ Genetic testing data comes in different formats
 
 This application scans the user-provided files (can be downloaded from sequencing provider) for annotated genes from the SNP database and outputs a report table with associated risk or each found SNP. This application is an implementation of the findings in referenced papers for research purposes only. It is not recommended as guidance in medical diagnosis and treatment. There might be conflicting results from different studies, see referenced papers for more details.
 
-SNP Database\
+Multiple conditions are implemented. Generic methods and attributes can be found in class "Conditions". Specific methods and attributes can be found in the corresponding child class (e.g. Spondyloarthritis).
+
+Example SNP Database for condition spondyloarthritis\
 [<img src="./doc/snpdb.png" width="800"/>](./doc/snpdb.png)
 
-Report based on VCF/TSV files\
+Example report based on VCF/TSV files\
 [<img src="./doc/results.png" width="1000"/>](./doc/results.png)
 
-Summary\
+Example summary\
 You will also get a diagnostic and a treatment score for TNF inhibitors and Methotrexate based on all found genes (tsv version only).
 
 # VCF Compatibility
@@ -23,7 +25,7 @@ This application has been tested with 23andme zip files containing TSV (text) fi
 
 # Python Code
 * Clone this repository to execute the application on your local computer installing the following [requirements](./requirements.txt).
-* Edit the [SNP database](./db/snpdb_sa.csv) to add more annotated genes.
+* Add a new or edit an existing [SNP database](./db) to add more annotated genes.
 * Run [genome-scanner_vcf.py](./code/genome-scanner_vcf.py) to execute this code on your local computer based on a VCF input file.
 * Run [genome-scanner_tsv.py](./code/genome-scanner_tsv.py) to execute this code on your local computer based on a zip file containing TSV (txt) files.
   
