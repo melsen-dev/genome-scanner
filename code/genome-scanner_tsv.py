@@ -19,15 +19,12 @@ if __name__ == '__main__':
 
     # File names
     snp_file_name = None
-    db_file_name = None
+    snp_db_file_name = "../db/snpdb_spondyloarthritis.csv"
 
     # Check if there are command line arguments
     if len(args) > 1:
         # Get the first argument as the user's SNP filename
         snp_file_name = args[1]
-    if len(args) > 2:
-        # Get the second argument as the SNP database filename
-        snp_db_file_name = args[2]
 
     # Create condition spondyloarthritis
     c_spondyloarthritis = Spondyloarthritis(snp_file_name, snp_db_file_name)

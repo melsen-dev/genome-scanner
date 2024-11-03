@@ -9,9 +9,10 @@ __version__ = "1.0.0"
 __maintainer__ = "Melanie Senn"
 __email__ = "melanie.senn@gmail.com"
 
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 import pandas as pd
 from zipfile import ZipFile
+from tkinter import filedialog as fd
 
 # Name constants
 C_APPLICATION = 'Application'
@@ -40,7 +41,6 @@ class Condition:
     def get_tsv_content(self):
 
         if self.snp_file_name is None:
-            from tkinter import filedialog as fd
             file_types = (('zip files', '*.zip'), ('All files', '*.*'))
             self.snp_file_name = fd.askopenfilename(title='Open a ZIP file', initialdir='/', filetypes=file_types)
 
@@ -57,12 +57,6 @@ class Condition:
     
     # Load SNP database
     def get_snp_db(self):
-
-        if self.snp_db_file_name is None:
-            from tkinter import filedialog as fd
-            file_types = (('csv files', '*.csv'), ('All files', '*.*'))
-            self.snp_db_file_name = fd.askopenfilename(title='Open a CSV file', initialdir='/', filetypes=file_types)
-
         self.snp_db = pd.read_csv(self.snp_db_file_name)
 
     # Get results from TSV files for database SNPs
