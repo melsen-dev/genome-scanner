@@ -6,16 +6,16 @@ Genetic testing data comes in different formats
 
 This application scans the user-provided files (can be downloaded from sequencing provider) for annotated genes from the SNP database and outputs a report table with associated risk or each found SNP. This application is an implementation of the findings in referenced papers for research purposes only. It is not recommended as guidance in medical diagnosis and treatment. There might be conflicting results from different studies, see referenced papers for more details.
 
-Multiple conditions are implemented. Generic methods and attributes can be found in class "Conditions". Specific methods and attributes can be found in the corresponding child class (e.g. Spondyloarthritis).
+Multiple conditions are implemented. Generic methods and attributes can be found in class Condition. Specific methods and attributes can be found in the corresponding child class (e.g. Spondyloarthritis).
 
 Example SNP Database for condition spondyloarthritis\
 [<img src="./doc/snpdb.png" width="800"/>](./doc/snpdb.png)
 
-Example report based on VCF/TSV files\
+Example report for condition spondyloarthritis based on VCF/TSV files\
 [<img src="./doc/results.png" width="1000"/>](./doc/results.png)
 
-Example summary\
-You will also get a diagnostic and a treatment score for TNF inhibitors and Methotrexate based on all found genes (tsv version only).
+Example summary for condition spondyloarthritis\
+You will get a diagnostic and a treatment score for TNF inhibitors and Methotrexate based on all found genes (tsv version only).
 
 # VCF Compatibility
 This application has been tested with VCF v4.2 files. See https://samtools.github.io/hts-specs/VCFv4.2.pdf for details on file format. You can find example VCF files for individual genomes from the `International Genome Sample Resource (IGSR)` and the `1000 Genomes Project` at https://www.internationalgenome.org/faq/can-i-get-phased-genotypes-and-haplotypes-for-the-individual-genomes/.
