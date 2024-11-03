@@ -6,7 +6,7 @@ Genetic testing data comes in different formats
 
 This application scans the user-provided files (can be downloaded from sequencing provider) for annotated genes from the SNP database and outputs a report table with associated risk or each found SNP. This application is an implementation of the findings in referenced papers for research purposes only. It is not recommended as guidance in medical diagnosis and treatment. There might be conflicting results from different studies, see referenced papers for more details.
 
-Multiple conditions are implemented. Generic methods and attributes can be found in class Condition. Specific methods and attributes can be found in the corresponding child class (e.g. Spondyloarthritis).
+Multiple conditions are implemented. Generic methods and attributes can be found in class Condition. Specific methods and attributes can be found in the corresponding child class (e.g. Spondyloarthritis). Each condition has their own SNP Database.
 
 Example SNP Database for condition spondyloarthritis\
 [<img src="./doc/snpdb.png" width="800"/>](./doc/snpdb.png)
