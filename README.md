@@ -8,13 +8,13 @@ This application scans the user-provided files (can be downloaded from sequencin
 
 Multiple conditions are implemented. Generic methods and attributes can be found in class Condition. Specific methods and attributes can be found in the corresponding child class (e.g. Spondyloarthritis). Each condition has their own SNP Database.
 
-Example SNP Database for condition spondyloarthritis\
+Example SNP Database for condition spondyloarthritis:\
 [<img src="./doc/snpdb.png" width="800"/>](./doc/snpdb.png)
 
-Example report for condition spondyloarthritis based on VCF/TSV files\
+Example report for condition spondyloarthritis based on VCF/TSV files:\
 [<img src="./doc/results.png" width="1000"/>](./doc/results.png)
 
-Example summary for condition spondyloarthritis\
+Example summary for condition spondyloarthritis:\
 You will get a diagnostic and a treatment score for TNF inhibitors and Methotrexate based on all found genes (tsv version only).
 
 # VCF Compatibility
@@ -29,15 +29,15 @@ This application has been tested with 23andme zip files containing TSV (text) fi
 * Run [genome-scanner_vcf.py](./code/genome-scanner_vcf.py) to execute this code on your local computer based on a VCF input file.
 * Run [genome-scanner_tsv.py](./code/genome-scanner_tsv.py) to execute this code on your local computer based on a zip file containing TSV (txt) files. You need to provide at least the config file as the first command line parameter. In addition you can provide the user's SNP file as the second command line parameter. If the second command line parameter is not specified, the user's SNP file can be selected by an input dialog.
 
-Example call for condition spondyloarthritis\
-../config/config_spondyloarthritis.json ../data/user_snp_23andme.zip
+Example call for condition spondyloarthritis:\
+python genome-scanner_tsv.py ../config/config_spondyloarthritis.json ../data/user_snp_23andme.zip
 
 # Config file
-A config file must contain key-value pairs for the following keys
+A config file must contain key-value pairs for the following keys:
 * snp_database: SNP database for specific condition
 * python_module: Python module for specific condition
 * class_constructor: class/constructor for specific condition.
 
-Example config file for condition spondyloarthritis\
+Example config file for condition spondyloarthritis:\
 [<img src="./doc/config.png" width="1000"/>](./doc/config.png)
   

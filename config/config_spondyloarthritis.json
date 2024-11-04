@@ -1,0 +1,5 @@
+{
+    "snp_database": "../db/snpdb_spondyloarthritis.csv",
+    "python_module": "spondyloarthritis",
+    "class_constructor": "Spondyloarthritis"
+}
