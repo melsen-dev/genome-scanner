@@ -39,5 +39,5 @@ A config file must contain key-value pairs for the following keys:
 * class_constructor: class/constructor for specific condition.
 
 Example config file for condition spondyloarthritis:\
-[<img src="./doc/config.png" width="1000"/>](./doc/config.png)
+[<img src="./doc/config.png" width="500"/>](./doc/config.png)
   
