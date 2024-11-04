@@ -27,5 +27,17 @@ This application has been tested with 23andme zip files containing TSV (text) fi
 * Clone this repository to execute the application on your local computer installing the following [requirements](./requirements.txt).
 * Add a new or edit an existing [SNP database](./db) to add more annotated genes.
 * Run [genome-scanner_vcf.py](./code/genome-scanner_vcf.py) to execute this code on your local computer based on a VCF input file.
-* Run [genome-scanner_tsv.py](./code/genome-scanner_tsv.py) to execute this code on your local computer based on a zip file containing TSV (txt) files.
+* Run [genome-scanner_tsv.py](./code/genome-scanner_tsv.py) to execute this code on your local computer based on a zip file containing TSV (txt) files. You need to provide at least the config file as the first command line parameter. In addition you can provide the user's SNP file as the second command line parameter. If the second command line parameter is not specified, the user's SNP file can be selected by an input dialog.
+
+Example call for condition spondyloarthritis\
+../config/config_spondyloarthritis.json ../data/user_snp_23andme.zip
+
+# Config file
+A config file must contain key-value pairs for the following keys
+* snp_database: SNP database for specific condition
+* python_module: Python module for specific condition
+* class_constructor: class/constructor for specific condition.
+
+Example config file for condition spondyloarthritis\
+[<img src="./doc/config.png" width="1000"/>](./doc/config.png)
   
