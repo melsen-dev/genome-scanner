@@ -40,4 +40,12 @@ A config file must contain key-value pairs for the following keys:
 
 Example config file for condition spondyloarthritis:\
 [<img src="./doc/config.png" width="300"/>](./doc/config.png)
+
+# App for specific condition
+A complete app for a specific condition (example spondyloarthritis) contains
+* genome-scanner_tsv.py (generic)
+* condition.py (generic)
+* spondyloarthritis.py (specific)
+* config_spondyloarthritis.json (specific).
+For adding a new condition, create a python module with class and config file.
   
