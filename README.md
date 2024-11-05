@@ -47,5 +47,6 @@ A complete app for a specific condition (example spondyloarthritis) contains
 * condition.py (generic)
 * spondyloarthritis.py (specific)
 * config_spondyloarthritis.json (specific).
+
 For adding a new condition, create a python module with class and config file.
   
