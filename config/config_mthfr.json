@@ -1,0 +1,5 @@
+{
+    "snp_database": "../db/snpdb_mthfr.csv",
+    "python_module": "mthfr",
+    "class_constructor": "MTHFR"
+}

@@ -120,9 +120,9 @@ class Spondyloarthritis(Condition):
         self.treatment_risk_association_mtx_pos = treatment_risk_association_mtx_pos
     
         # Summarize results from single SNPs for conclusion
-        print('\nYour diagnostic score: ' + diagnostic_risk_association)
-        print('\nYour TNF inhibitor treatment score: ' + treatment_risk_association_tnf_pos + V_TREATMENT_CLIN_RESP_POS)
-        print('\nYour Methotrexate treatment score: ' + treatment_risk_association_mtx_pos + V_TREATMENT_CLIN_RESP_POS)
+        print('\nYour diagnostic insights: ' + diagnostic_risk_association)
+        print('\nYour TNF inhibitor treatment insights: ' + treatment_risk_association_tnf_pos + V_TREATMENT_CLIN_RESP_POS)
+        print('\nYour Methotrexate treatment insights: ' + treatment_risk_association_mtx_pos + V_TREATMENT_CLIN_RESP_POS)
 
     # Save results (csv and json)
     def save_results(self, results_csv_file_name, results_json_file_name):

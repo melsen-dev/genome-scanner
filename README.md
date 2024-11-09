@@ -46,7 +46,8 @@ A complete app for a specific condition (example spondyloarthritis) contains
 * genome-scanner_tsv.py (generic)
 * condition.py (generic)
 * spondyloarthritis.py (specific)
-* config_spondyloarthritis.json (specific).
+* config_spondyloarthritis.json (specific)
+* snpdb_spondyloarthritis.csv (specific).
 
-For adding a new condition, create a python module with class and config file.
+For adding a new condition, create a python module with class, config and snbdb file.
   
