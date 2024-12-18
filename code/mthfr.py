@@ -71,7 +71,6 @@ class MTHFR(Condition):
         # json file
         result_dic = {
             "dianogstic_score": self.diagnostic_risk_association,
-            "table_csv" : self.snp_results.to_csv(None, index=False, sep='\t'),
             "data" : self.snp_results.to_dict(orient='records')
         }
 
