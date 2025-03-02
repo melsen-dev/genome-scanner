@@ -1,0 +1,5 @@
+{
+    "snp_database": "../db/snpdb_neuropsych.csv",
+    "python_module": "neuropsych",
+    "class_constructor": "Neuropsych"
+}

@@ -1,0 +1,18 @@
+Condition,Application,SNP,Gene/locus,Risk allele,Protective allele,Reference
+Neuropsychiatric Disorders,Autism Spectrum Disorder,rs2388334,Not available,G,A,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Tourettes Syndrome,rs2388334,Not available,A,G,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Bipolar Disorder,rs2388334,Not available,G,A,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Schizophrenia,rs301805,Not available,G,T,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Major Depressive Disorder,rs301805,Not available,T,G,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Major Depressive Disorder,rs75595651,Not available,C,T,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Bipolar Disorder,rs75595651,Not available,T,C,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Major Depressive Disorder,rs314280,Not available,G,A,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Schizophrenia,rs314280,Not available,A,G,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Anorexia Nervosa,rs6748341,Not available,G,C,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Schizophrenia,rs6748341,Not available,C,G,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Major Depressive Disorder,rs3806843,Not available,C,T,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Schizophrenia,rs3806843,Not available,T,C,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Autism Spectrum Disorder,rs9329221,Not available,G,T,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Schizophrenia,rs9329221,Not available,T,G,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Schizophrenia,rs2921036,Not available,C,T,https://www.nature.com/articles/s41398-024-03098-1
+Neuropsychiatric Disorders,Autism Spectrum Disorder,rs2921036,Not available,T,C,https://www.nature.com/articles/s41398-024-03098-1
