@@ -23,7 +23,7 @@ ASSOCIATIONS_TREATMENT_OPPORTUNITY = ['Low opportunity', 'High opportunity']
 class Spondyloarthritis(Condition):
     def __init__(self, snp_file_name, snp_db_file_name):
         super().__init__(snp_file_name, snp_db_file_name)
-        
+
         self.diagnostic_risk_association = None
         self.treatment_risk_association_tnf_pos = None
         self.treatment_risk_association_mtx_pos = None
@@ -33,7 +33,7 @@ class Spondyloarthritis(Condition):
         association = ''
         risk = 0
         application = result_row[C_APPLICATION]
-        
+
         if application == V_DIAGNOSIS:
             # Risk = 0: if risk allele not found in genotype
             # Risk = 1: if risk allele found once in genotype
@@ -42,7 +42,7 @@ class Spondyloarthritis(Condition):
             max_risk = 2
             assert((risk < 2) or (risk > 0))
             association = ASSOCIATIONS_DIAGNOSIS[risk]
-        
+
         elif V_TREATMENT in application:
 
             # Break down application string
@@ -69,7 +69,7 @@ class Spondyloarthritis(Condition):
                     risk = 1
 
         return risk, max_risk, association
-    
+
     # Summarize results from single SNPs into conclusion
     def summarize_results(self):
 
@@ -118,7 +118,7 @@ class Spondyloarthritis(Condition):
         self.diagnostic_risk_association = diagnostic_risk_association
         self.treatment_risk_association_tnf_pos = treatment_risk_association_tnf_pos
         self.treatment_risk_association_mtx_pos = treatment_risk_association_mtx_pos
-    
+
         # Summarize results from single SNPs for conclusion
         print('\nYour diagnostic insights: ' + diagnostic_risk_association)
         print('\nYour TNF inhibitor treatment insights: ' + treatment_risk_association_tnf_pos + V_TREATMENT_CLIN_RESP_POS)
@@ -134,7 +134,7 @@ class Spondyloarthritis(Condition):
             "dianogstic_score": self.diagnostic_risk_association,
             "tnf_treatment_score": self.treatment_risk_association_tnf_pos + V_TREATMENT_CLIN_RESP_POS,
             "mr_treatment_score" : self.treatment_risk_association_mtx_pos + V_TREATMENT_CLIN_RESP_POS,
-            "table_csv" : self.snp_results.to_csv(None, index=False, sep='\t')
+            "data" : self.snp_results.to_dict(orient='records')
         }
 
         # Convert and write JSON object to file

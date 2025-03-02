@@ -26,7 +26,7 @@ class MTHFR(Condition):
         association = ''
         risk = 0
         application = result_row[C_APPLICATION]
-    
+
         # Risk = 0: if risk allele not found in genotype
         # Risk = 1: if risk allele found once in genotype
         # Risk = 2: if risk allele found twice in genotype
@@ -34,9 +34,9 @@ class MTHFR(Condition):
         max_risk = 2
         assert((risk < 2) or (risk > 0))
         association = ASSOCIATIONS_DIAGNOSIS[risk]
-        
+
         return risk, max_risk, association
-    
+
     # Summarize results from single SNPs into conclusion
     def summarize_results(self):
 
@@ -59,7 +59,7 @@ class MTHFR(Condition):
             diagnostic_risk_association = ASSOCIATIONS_DIAGNOSIS[2]
 
         self.diagnostic_risk_association = diagnostic_risk_association
-    
+
         # Summarize results from single SNPs for conclusion
         print('\nYour diagnostic insights: ' + diagnostic_risk_association)
 
@@ -71,7 +71,8 @@ class MTHFR(Condition):
         # json file
         result_dic = {
             "dianogstic_score": self.diagnostic_risk_association,
-            "table_csv" : self.snp_results.to_csv(None, index=False, sep='\t')
+            "table_csv" : self.snp_results.to_csv(None, index=False, sep='\t'),
+            "data" : self.snp_results.to_dict(orient='records')
         }
 
         # Convert and write JSON object to file

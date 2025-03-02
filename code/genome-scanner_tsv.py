@@ -21,7 +21,7 @@ def import_and_instantiate(module_name, class_name, *args, **kwargs):
     return class_(*args, **kwargs)
 
 if __name__ == '__main__':
-    
+
     # SNP file name
     snp_file_name = None
 
@@ -41,7 +41,7 @@ if __name__ == '__main__':
         config_data = json.load(config_file)
 
     # Import module and instantiate object for specific condition with config data
-    condition = import_and_instantiate(config_data["python_module"], config_data["class_constructor"], 
+    condition = import_and_instantiate(config_data["python_module"], config_data["class_constructor"],
                                        snp_file_name, config_data["snp_database"])
 
     # Get content from TSV files
@@ -60,5 +60,3 @@ if __name__ == '__main__':
     condition.save_results("results.csv", "results.json")
 
     print("\nScan finished")
-
-
