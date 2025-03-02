@@ -92,7 +92,7 @@ class Neuropsych(Condition):
             "dianogstic_score_scz": self.diagnostic_risk_association[3],
             "dianogstic_score_mdd": self.diagnostic_risk_association[4],
             "dianogstic_score_ano": self.diagnostic_risk_association[5],
-            "table_csv" : self.snp_results.to_csv(None, index=False, sep='\t')
+            "data" : self.snp_results.to_dict(orient='records')
         }
 
         # Convert and write JSON object to file
